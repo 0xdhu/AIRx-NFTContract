@@ -70,7 +70,7 @@ contract AircoinsMetaverse is ERC721Enumerable, Ownable, ERC721Burnable, ERC721P
     }
 
     // this is for presale
-    function presaleMint(address _to) public payable onlyOwner {
+    function presaleMint(address _to) public onlyOwner {
         _mintAnElement(_to);
     }
 
@@ -124,7 +124,7 @@ contract AircoinsMetaverse is ERC721Enumerable, Ownable, ERC721Burnable, ERC721P
     }
 
     // withdraw all coins
-    function withdrawAll() public payable onlyOwner {
+    function withdrawAll() public onlyOwner {
         uint256 balance = address(this).balance;
         require(balance > 0);
         _widthdraw(devAddress, balance);
